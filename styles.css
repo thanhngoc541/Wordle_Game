@@ -12,8 +12,32 @@ body {
     background-color: #485461;
     background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
 }
-
+#game-header {
+    font-family: cursive;
+    position: absolute;
+    font-weight: 900;
+    margin-top: 30vh;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    font-size: 50px;
+    text-decoration: dotted;
+    background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+.start-screen {
+    background-image: url('start.jpg');
+}
+.start-btn {
+    margin: auto;
+    width: 200px;
+}
 .game_container {
+    background-image: url('start.jpg');
+
     overflow: hidden;
     background-color: hsl(240, 3%, 7%);
     display: flex;
