@@ -175,7 +175,13 @@ function showInfo() {
   popup[popupStatus].classList.toggle("show");
   popupStatus = (popupStatus + 1) % 3;
   popup[popupStatus].classList.toggle("show");
+}
 
+function closeInfo() {
+  popupStatus = 0;
+  for (var i = 0; i < popup.length; i++) {
+    popup[i].classList.remove("show");
+  }
 }
 
 function showAlert(message, duration = 1000) {
@@ -210,29 +216,41 @@ function getScoreOnTime() {
     if (speedScores[i].second > totalSeconds) return speedScores[i].score;
   }
 }
-var scoreLabel = document.getElementById('score');
-var scoreFinished = document.getElementById('score2');
+var scoreLabels = document.getElementsByClassName('score');
 
 function finishRound() {
   score += attemptScores[Math.fround(getDataLetters().length / 5) - 1];
   score += getScoreOnTime();
-  scoreLabel.innerHTML = `Score: ${score}`
+  console.log(scoreLabels)
+  for (var i = 0; i < scoreLabels.length; i++) {
+    scoreLabels[i].innerHTML = `Score: ${score}`
+  }
   if (roundNum == targetWords.length - 1) {
-    scoreFinished.innerHTML = `Score: ${score}`
-
     document.getElementById('popup3').classList.toggle('show');
     return stopInteraction();
   }
+  endRound();
+}
+var endRoundScreen = document.getElementById('end-round');
+function endRound() {
+  endRoundScreen.classList.toggle('show');
+}
+function startRound() {
+  endRoundScreen.classList.remove('show');
+  console.log("start round")
   setRound(++roundNum);
   remmoveDataLetter();
 }
 
-var roundLabel = document.getElementById('round-label')
+
+var roundLabels = document.getElementsByClassName('round-text')
 
 function setRound(round) {
   totalSeconds = 0;
   targetWord = targetWords[round];
-  roundLabel.innerHTML = `ROUND ${round + 1}`
+  console.log(roundLabels)
+  for (var i = 0; i < roundLabels.length; i++)
+    roundLabels[i].innerHTML = `ROUND ${round + 1}`
 }
 
 function checkWinLose(guess, tiles) {

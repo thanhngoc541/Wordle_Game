@@ -11,13 +11,22 @@
     </head>
     <body>
         <div class="game_container">
-            <div class="alert-container" data-alert-container></div>
+            <div class="end-round-screen game_container-2" id="end-round">
+                <p id="game-header-end-round"><span class="round-text">ROUND 1</span>
+                    <br /> <span class="score"  style="font-size:1.75rem">Score: 0</span>
+                </p>
+                <input type="image" onclick="startRound()" class="start-btn"src="start-btn.png"></input>
+            </div>
+            <div style="margin-top:1rem; position: relative;" >
+                <div class="alert-container" data-alert-container></div>
 
-            <span id="info" onclick="showInfo()"><i class="fas fa-info-circle"></i></span>
+                <span id="info" onclick="showInfo()"><i class="fas fa-info-circle"></i></span>
 
-            <h1 id="round-label" style="color: white">ROUND 1</h1>
-            <h2 id="timer">00:00</h2>
-            <h2 id="score">Score: 0</h2>
+                <h1 class="round-label round-text" style="color: white">ROUND 1</h1>
+                <h2 id="timer">00:00</h2>
+                <h2 class="score">Score: 0</h2>
+            </div>
+
             <div data-guess-grid class="guess-grid">
                 <div class="tile"></div>
                 <div class="tile"></div>
@@ -51,7 +60,8 @@
                 <div class="tile"></div>
             </div>
             <div id="popup0" class="show"></div>
-            <div class="info-popup" id="popup1">
+            <div class="info-popup" id="popup2">
+                <i class="fa fa-close close-icon" onclick="closeInfo()"></i>
                 <div>
                     <p style="text-align: center">POINT SYSTEM</p>
                 </div>
@@ -125,7 +135,9 @@
                     <p>5:00+ minutes - 10 points</p>
                 </div>
             </div>
-            <div class="info-popup" id="popup2">
+            <div class="info-popup" id="popup1">
+                <i class="fa fa-close close-icon" onclick="closeInfo()"></i>
+                <i class='fas fa-arrow-alt-circle-right next-icon' onclick="showInfo()"></i>
                 <div>
                     <p style="text-align: center">INSTRUCTIONS</p>
                 </div>
@@ -169,7 +181,7 @@
             <div class="info-popup" style="text-align: center" id="popup3">
                 <div>
                     <h1 style="text-align: center">FINISHED!</h1>
-                    <h2 style="text-align: center" id="score2">Score: 0</h2>
+                    <h2 style="text-align: center" class="score">Score: 0</h2>
                 </div>
                 <div>
                     <p><br /></p>
