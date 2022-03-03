@@ -158,6 +158,16 @@ function flipTile(tile, index, array, guess) {
 function getDataLetters() {
   return guessGrid.querySelectorAll('[data-letter]');
 }
+function enterGuessGrid() {
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    removeActiveTiles();
+    let word = prompt("Please enter the word", "");
+    for (var i = 0; i < word.length; i++) {
+      pressKey(word.charAt(i));
+    }
+    submitGuess();
+  }
+}
 function remmoveDataLetter() {
   var dataLetters = getDataLetters();
   dataLetters.forEach(div => {
@@ -168,6 +178,17 @@ function remmoveDataLetter() {
 }
 function getActiveTiles() {
   return guessGrid.querySelectorAll('[data-state="active"]')
+}
+function removeActiveTiles() {
+  const activeTiles = getActiveTiles();
+  console.log(activeTiles)
+  activeTiles.forEach(tile => {
+    tile.removeAttribute('data-state')
+    tile.removeAttribute('data-letter')
+    tile.innerHTML = "";
+  })
+  console.log(activeTiles)
+
 }
 var popupStatus = 0;
 var popup = [document.getElementById("popup0"), document.getElementById("popup1"), document.getElementById("popup2")];
