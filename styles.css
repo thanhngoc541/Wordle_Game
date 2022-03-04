@@ -73,6 +73,15 @@ body {
         overflow: scroll !important;
     }
 }
+.hidden {
+    display: none !important;
+}
+#start-text {
+    margin-bottom: 3rem;
+    position: absolute;
+    width: 100%;
+    bottom: 4rem;
+}
 .game_container {
     background-image: url('start.jpg');
     overflow: hidden;

@@ -16,6 +16,7 @@
                     <br /> <span class="score"  style="font-size:1.75rem">Score: 0</span>
                 </p>
                 <input type="image" onclick="startRound()" class="start-btn"src="start-btn.png"></input>
+                <p id="start-text">Click play to start next round</p>
             </div>
             <div style="margin-top:1rem; position: relative;" >
                 <div class="alert-container" data-alert-container></div>
@@ -27,7 +28,7 @@
                 <h2 class="score">Score: 0</h2>
             </div>
 
-            <div data-guess-grid class="guess-grid" onclick="enterGuessGrid()">
+            <div data-guess-grid class="guess-grid" id="grid" onclick="enterGuessGrid()">
                 <div class="tile"></div>
                 <div class="tile"></div>
                 <div class="tile"></div>

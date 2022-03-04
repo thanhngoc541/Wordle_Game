@@ -162,6 +162,10 @@ function enterGuessGrid() {
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     removeActiveTiles();
     let word = prompt("Please enter the word", "");
+    if (word.length != 5) {
+      alert('You should enter 5 characters')
+      return;
+    }
     for (var i = 0; i < word.length; i++) {
       pressKey(word.charAt(i));
     }
@@ -238,6 +242,7 @@ function getScoreOnTime() {
   }
 }
 var scoreLabels = document.getElementsByClassName('score');
+var grid = document.getElementById('grid');
 
 function finishRound() {
   score += attemptScores[Math.fround(getDataLetters().length / 5) - 1];
@@ -255,9 +260,11 @@ function finishRound() {
 var endRoundScreen = document.getElementById('end-round');
 function endRound() {
   endRoundScreen.classList.toggle('show');
+  grid.classList.toggle('hidden')
 }
 function startRound() {
   endRoundScreen.classList.remove('show');
+  grid.classList.remove('hidden')
   console.log("start round")
   setRound(++roundNum);
   remmoveDataLetter();
